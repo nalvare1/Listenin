@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5090CAEE1F76DB8F0029AF04 /* LikedSongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5090CAED1F76DB8F0029AF04 /* LikedSongsViewController.swift */; };
+		5090CAF51F76EB3C0029AF04 /* Listenin_Original_Logo_Pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 5090CAF31F76EAE60029AF04 /* Listenin_Original_Logo_Pic.png */; };
+		5090CAF61F76EB3C0029AF04 /* purple-heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 5090CAF41F76EAE60029AF04 /* purple-heart.png */; };
+		5090CAF71F76EB5F0029AF04 /* Black Diamond.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5090CAF21F76EAC20029AF04 /* Black Diamond.ttf */; };
 		50C9C6F51F769B0500E6B038 /* RecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C9C6F41F769B0500E6B038 /* RecorderViewController.swift */; };
 		50C9C6F81F76AAA500E6B038 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50C9C6F71F76AAA500E6B038 /* AudioToolbox.framework */; };
 		EF34844D1E55D5BA007F7453 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34844C1E55D5BA007F7453 /* AppDelegate.swift */; };
@@ -41,11 +44,11 @@
 
 /* Begin PBXFileReference section */
 		5090CAE81F76D00A0029AF04 /* appiconmaker */ = {isa = PBXFileReference; lastKnownFileType = folder; path = appiconmaker; sourceTree = "<group>"; };
-		5090CAE91F76D2EC0029AF04 /* listenin_navaigation_bar_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = listenin_navaigation_bar_image.png; path = ../../../../../Desktop/listenin_navaigation_bar_image.png; sourceTree = "<group>"; };
-		5090CAEA1F76D61A0029AF04 /* Listenin_Original_Logo_Pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Listenin_Original_Logo_Pic.png; path = ../../../../../Downloads/Listenin_Original_Logo_Pic.png; sourceTree = "<group>"; };
-		5090CAEB1F76DA2C0029AF04 /* purple-heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "purple-heart.png"; path = "../../../../../Downloads/purple-heart.png"; sourceTree = "<group>"; };
 		5090CAEC1F76DB1B0029AF04 /* Black Diamond.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Black Diamond.ttf"; path = "../../../../Library/Containers/com.apple.mail/Data/Library/Mail Downloads/152AB66E-717C-43B4-B716-0972E53FACD2/Black Diamond.ttf"; sourceTree = "<group>"; };
 		5090CAED1F76DB8F0029AF04 /* LikedSongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedSongsViewController.swift; sourceTree = "<group>"; };
+		5090CAF21F76EAC20029AF04 /* Black Diamond.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Black Diamond.ttf"; sourceTree = "<group>"; };
+		5090CAF31F76EAE60029AF04 /* Listenin_Original_Logo_Pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Listenin_Original_Logo_Pic.png; path = ../../../../../Downloads/Listenin_Original_Logo_Pic.png; sourceTree = "<group>"; };
+		5090CAF41F76EAE60029AF04 /* purple-heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "purple-heart.png"; path = "../../../../../Downloads/purple-heart.png"; sourceTree = "<group>"; };
 		50C9C6F41F769B0500E6B038 /* RecorderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderViewController.swift; sourceTree = "<group>"; };
 		50C9C6F71F76AAA500E6B038 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		50C9C6F91F76AAA600E6B038 /* Listenin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Listenin.entitlements; sourceTree = "<group>"; };
@@ -131,16 +134,16 @@
 		EF34844B1E55D5BA007F7453 /* SpotifySDKDemo */ = {
 			isa = PBXGroup;
 			children = (
-				5090CAEA1F76D61A0029AF04 /* Listenin_Original_Logo_Pic.png */,
-				5090CAE91F76D2EC0029AF04 /* listenin_navaigation_bar_image.png */,
 				EF34844C1E55D5BA007F7453 /* AppDelegate.swift */,
+				5090CAF31F76EAE60029AF04 /* Listenin_Original_Logo_Pic.png */,
+				5090CAF41F76EAE60029AF04 /* purple-heart.png */,
 				EF34844E1E55D5BA007F7453 /* SpotifyLoginViewController.swift */,
 				50C9C6F41F769B0500E6B038 /* RecorderViewController.swift */,
 				EF3484501E55D5BA007F7453 /* Main.storyboard */,
 				5090CAED1F76DB8F0029AF04 /* LikedSongsViewController.swift */,
-				5090CAEB1F76DA2C0029AF04 /* purple-heart.png */,
 				EF3484531E55D5BA007F7453 /* Assets.xcassets */,
 				EF3484551E55D5BA007F7453 /* LaunchScreen.storyboard */,
+				5090CAF21F76EAC20029AF04 /* Black Diamond.ttf */,
 				EF3484581E55D5BA007F7453 /* Info.plist */,
 				5090CAE81F76D00A0029AF04 /* appiconmaker */,
 				EF3484811E55D686007F7453 /* SpotifySDKDemo-Bridging-Header.h */,
@@ -293,6 +296,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5090CAF71F76EB5F0029AF04 /* Black Diamond.ttf in Resources */,
+				5090CAF51F76EB3C0029AF04 /* Listenin_Original_Logo_Pic.png in Resources */,
+				5090CAF61F76EB3C0029AF04 /* purple-heart.png in Resources */,
 				EF3484571E55D5BA007F7453 /* LaunchScreen.storyboard in Resources */,
 				EF3484541E55D5BA007F7453 /* Assets.xcassets in Resources */,
 				EF3484521E55D5BA007F7453 /* Main.storyboard in Resources */,

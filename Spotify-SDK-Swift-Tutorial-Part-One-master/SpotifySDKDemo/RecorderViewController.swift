@@ -12,8 +12,9 @@ import AVFoundation
 class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
 
-    @IBOutlet weak var playBTN: UIButton!
     @IBOutlet weak var recordBTN: UIButton!
+    
+
     //static let wav: AVFileType
     
     var soundRecorder : AVAudioRecorder!
@@ -25,6 +26,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
 
         setupRecorder()
         // Do any additional setup after loading the view.
@@ -72,7 +74,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
         //let filePath = NSURL(fileURLWithPath: path)
         
         //  let filePath = URL.init(fileURLWithPath: url.path)
-        print(soundurl!)
+       // print(soundurl!)
         
         return soundurl as NSURL?
         
@@ -130,7 +132,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
         do {
             //let myurl = getFileURL() as URL
             let myurl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            print(myurl)
+           // print(myurl)
             soundPlayer = try AVAudioPlayer(contentsOf: myurl as URL)
             if FileManager.default.fileExists(atPath: myurl.path) {
                 print("File found!")
@@ -147,7 +149,8 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
     /* ============================================================================*/
     /* buttons: */
     
-    @IBAction func RecorderButton(_ sender: UIButton) {
+    @IBAction func RecorderBTN(_ sender: UIButton) {
+    
         if sender.titleLabel?.text == "Record" {
         
             //soundRecorder?.record()
@@ -168,17 +171,17 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
             sender.setTitle("Stop", for: .normal)
             
             //disable button to play recording:
-            playBTN.isEnabled = false
+            //playBTN.isEnabled = false
         } else {
            // soundRecorder?.stop()
             self.stopRecording(success: true)
             sender.setTitle("Record", for: .normal)
-            playBTN.isEnabled = true
+            //playBTN.isEnabled = true
         }
         
     
     }
-    
+    /*
     @IBAction func PlayerButton(_ sender: UIButton) {
         if sender.titleLabel?.text == "Play" {
 
@@ -194,6 +197,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
         }
     
     }
+ */
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if !flag {
