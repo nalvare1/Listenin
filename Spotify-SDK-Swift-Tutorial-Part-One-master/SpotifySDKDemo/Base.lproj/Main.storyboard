@@ -11,9 +11,6 @@
         <array key="Black Diamond.ttf">
             <string>BlackDiamond</string>
         </array>
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-        </array>
     </customFonts>
     <scenes>
         <!--Spotify Login View Controller-->
@@ -43,9 +40,8 @@
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dfR-Ek-Cgz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81p-j2-0gi">
-                                <rect key="frame" x="74" y="188" width="216" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81p-j2-0gi">
+                                <rect key="frame" x="52" y="188" width="216" height="30"/>
                                 <state key="normal" title="Go To Recorder View Controller"/>
                                 <connections>
                                     <segue destination="rmI-eu-cf4" kind="show" id="rKh-oy-xgG"/>
@@ -55,7 +51,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="WEf-dO-Ywl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Srb-cx-oTH"/>
+                            <constraint firstItem="WEf-dO-Ywl" firstAttribute="top" secondItem="81p-j2-0gi" secondAttribute="bottom" constant="51" id="Y72-L6-oFv"/>
                             <constraint firstItem="WEf-dO-Ywl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gUu-kl-mWT"/>
+                            <constraint firstItem="81p-j2-0gi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mzM-cY-vwY"/>
                         </constraints>
                     </view>
                     <connections>
@@ -86,6 +84,12 @@
                                             <segue destination="rmI-eu-cf4" kind="show" id="k6d-XE-sUR"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sYg-Lv-53s"/>
+                                    <barButtonItem title="Remove" id="my6-zb-xt7">
+                                        <connections>
+                                            <action selector="RemoveSongButton:" destination="gva-J1-sRg" id="aZO-55-i3U"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SmP-Xi-YUY">
@@ -101,6 +105,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gva-J1-sRg" id="AZr-pL-ZJj"/>
+                                    <outlet property="delegate" destination="gva-J1-sRg" id="1e3-ga-71L"/>
+                                </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMs-Qd-6VY">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -108,20 +116,11 @@
                                     <navigationItem title="Liked Songs 🎵" id="f7p-7D-Qon"/>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Liked Songs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOs-IW-ImS">
-                                <rect key="frame" x="44" y="102" width="232" height="75"/>
-                                <color key="backgroundColor" red="0.68818017229999995" green="0.1817321019" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="232" id="8tw-4z-MAf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="BlackDiamond" family="Black Diamond" pointSize="39"/>
-                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Liked Songs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4v-Wn-LOZ">
                                 <rect key="frame" x="52" y="107" width="217" height="65"/>
                                 <color key="backgroundColor" red="0.44194976590000001" green="0.35079419150000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="Gis-ws-Nur"/>
                                     <constraint firstAttribute="width" constant="217" id="RvB-EC-kyG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="BlackDiamond" family="Black Diamond" pointSize="39"/>
@@ -143,20 +142,15 @@
                             <constraint firstAttribute="trailing" secondItem="hMs-Qd-6VY" secondAttribute="trailing" id="Hnk-cb-sHA"/>
                             <constraint firstItem="hMs-Qd-6VY" firstAttribute="leading" secondItem="LF5-FE-Vhy" secondAttribute="leading" id="Hoe-l9-zU1"/>
                             <constraint firstItem="SmP-Xi-YUY" firstAttribute="top" secondItem="F4v-Wn-LOZ" secondAttribute="bottom" constant="45" id="IPK-bb-e5F"/>
-                            <constraint firstItem="F4v-Wn-LOZ" firstAttribute="leading" secondItem="cOs-IW-ImS" secondAttribute="trailing" constant="-224" id="Lyc-wX-Qj0"/>
                             <constraint firstItem="F4v-Wn-LOZ" firstAttribute="top" secondItem="hMs-Qd-6VY" secondAttribute="bottom" constant="43" id="M83-lK-AGj"/>
-                            <constraint firstItem="cOs-IW-ImS" firstAttribute="centerX" secondItem="LF5-FE-Vhy" secondAttribute="centerX" id="OrK-aH-WeJ"/>
                             <constraint firstItem="Efc-y5-0sx" firstAttribute="leading" secondItem="LF5-FE-Vhy" secondAttribute="leading" id="PiB-YG-PXV"/>
                             <constraint firstItem="hMs-Qd-6VY" firstAttribute="leading" secondItem="LF5-FE-Vhy" secondAttribute="leading" id="Q4G-2O-cQC"/>
                             <constraint firstItem="hMs-Qd-6VY" firstAttribute="leading" secondItem="LF5-FE-Vhy" secondAttribute="leading" id="XO5-y0-rNQ"/>
                             <constraint firstItem="Efc-y5-0sx" firstAttribute="leading" secondItem="LF5-FE-Vhy" secondAttribute="leading" id="Z2N-jp-ThM"/>
-                            <constraint firstItem="SmP-Xi-YUY" firstAttribute="top" secondItem="cOs-IW-ImS" secondAttribute="bottom" constant="40" id="a5V-xD-Udt"/>
                             <constraint firstItem="soj-d3-BkV" firstAttribute="top" secondItem="Efc-y5-0sx" secondAttribute="bottom" id="h9z-Ca-Wx8"/>
                             <constraint firstItem="hMs-Qd-6VY" firstAttribute="centerX" secondItem="LF5-FE-Vhy" secondAttribute="centerX" id="hSq-x8-nP0"/>
                             <constraint firstItem="SmP-Xi-YUY" firstAttribute="leading" secondItem="LF5-FE-Vhy" secondAttribute="leading" id="kzx-WW-rnN"/>
                             <constraint firstAttribute="trailing" secondItem="Efc-y5-0sx" secondAttribute="trailing" id="lJb-te-ks4"/>
-                            <constraint firstItem="cOs-IW-ImS" firstAttribute="top" secondItem="hMs-Qd-6VY" secondAttribute="bottom" constant="38" id="s9t-7G-9n7"/>
-                            <constraint firstItem="F4v-Wn-LOZ" firstAttribute="leading" secondItem="cOs-IW-ImS" secondAttribute="trailing" constant="-224" id="ybY-Mr-4Du"/>
                             <constraint firstAttribute="trailing" secondItem="hMs-Qd-6VY" secondAttribute="trailing" id="ztl-kG-6jY"/>
                         </constraints>
                     </view>
@@ -183,23 +177,21 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1j9-a0-3eS">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem title="Back To Spotify Login" id="0hw-mY-ll5">
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="2II-Po-rch"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem systemItem="play" id="0hw-mY-ll5"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="7np-7g-kJb"/>
                                     <barButtonItem title="Likes" id="nwN-GU-vTX">
                                         <connections>
-                                            <segue destination="gva-J1-sRg" kind="show" id="wxz-qn-Zgt"/>
+                                            <segue destination="gva-J1-sRg" kind="show" id="VTf-dx-Bqd"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="LNS-Fj-VxB"/>
+                                    <barButtonItem systemItem="pause" id="SL7-1M-IkC"/>
                                 </items>
                             </toolbar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uJn-QO-Ala">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <items>
-                                    <navigationItem title="Mood 🔮🎵" id="mrQ-9n-zuJ"/>
+                                    <navigationItem title="&quot;Hips Don't Lie&quot; By Shakira" id="mrQ-9n-zuJ"/>
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Listenin_Original_Logo_Pic.png" translatesAutoresizingMaskIntoConstraints="NO" id="mD6-fQ-2U0">
@@ -220,16 +212,6 @@
                                     <action selector="RecorderBTN:" destination="rmI-eu-cf4" eventType="touchUpInside" id="3ph-QQ-LvF"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="&quot;Hips Don't Lie&quot; By Shakira" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oIO-Cv-P5w">
-                                <rect key="frame" x="40.5" y="359" width="239" height="75"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="PCE-Vw-8Ha"/>
-                                    <constraint firstAttribute="width" constant="239" id="o4q-aP-V8S"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGt-n9-KpM">
                                 <rect key="frame" x="123" y="442" width="74" height="54"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -240,26 +222,42 @@
                                     <constraint firstAttribute="height" constant="54" id="k2S-2x-reA"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="purple-heart.png"/>
+                                <connections>
+                                    <action selector="addToLikesButton_purpleHeart:" destination="rmI-eu-cf4" eventType="touchUpInside" id="WKP-Jq-Dzd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agV-Hs-9Hq">
+                                <rect key="frame" x="73" y="367" width="175" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="aF7-8H-e5G"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Back To Spotify Login"/>
+                                <connections>
+                                    <action selector="RecorderBTN:" destination="rmI-eu-cf4" eventType="touchUpInside" id="4Ed-d9-Pgo"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="oT0-we-Z2a"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4uO-5Z-gm7" firstAttribute="top" secondItem="mD6-fQ-2U0" secondAttribute="bottom" constant="31" id="3Rd-YP-rGV"/>
                             <constraint firstItem="Ev5-Kr-jsy" firstAttribute="top" secondItem="1j9-a0-3eS" secondAttribute="bottom" id="4nj-z9-rro"/>
+                            <constraint firstItem="agV-Hs-9Hq" firstAttribute="centerX" secondItem="tQF-4H-UGP" secondAttribute="centerX" id="4ye-Ue-VPA"/>
                             <constraint firstItem="4uO-5Z-gm7" firstAttribute="centerX" secondItem="tQF-4H-UGP" secondAttribute="centerX" id="7xi-u6-WOF"/>
-                            <constraint firstItem="oIO-Cv-P5w" firstAttribute="top" secondItem="4uO-5Z-gm7" secondAttribute="bottom" constant="8" id="8QQ-Mb-6MQ"/>
                             <constraint firstAttribute="trailing" secondItem="1j9-a0-3eS" secondAttribute="trailing" id="Avp-of-8l8"/>
+                            <constraint firstItem="KGt-n9-KpM" firstAttribute="centerX" secondItem="agV-Hs-9Hq" secondAttribute="centerX" id="E5g-V6-V8w"/>
+                            <constraint firstItem="KGt-n9-KpM" firstAttribute="top" secondItem="agV-Hs-9Hq" secondAttribute="bottom" constant="41" id="EOP-Bm-hws"/>
                             <constraint firstAttribute="trailing" secondItem="uJn-QO-Ala" secondAttribute="trailing" id="H1e-jM-EF2"/>
                             <constraint firstAttribute="trailing" secondItem="uJn-QO-Ala" secondAttribute="trailing" id="NI2-gS-7rX"/>
                             <constraint firstItem="uJn-QO-Ala" firstAttribute="top" secondItem="btA-0L-874" secondAttribute="bottom" id="Pf2-BX-KyW"/>
                             <constraint firstItem="uJn-QO-Ala" firstAttribute="centerX" secondItem="tQF-4H-UGP" secondAttribute="centerX" id="TMf-Sg-EJx"/>
+                            <constraint firstItem="agV-Hs-9Hq" firstAttribute="top" secondItem="4uO-5Z-gm7" secondAttribute="bottom" constant="16" id="Tdv-qL-EwZ"/>
                             <constraint firstItem="mD6-fQ-2U0" firstAttribute="centerY" secondItem="tQF-4H-UGP" secondAttribute="centerY" constant="-90" id="e8Z-J2-Jqo"/>
                             <constraint firstItem="uJn-QO-Ala" firstAttribute="top" secondItem="btA-0L-874" secondAttribute="bottom" id="fJ7-qG-y2e"/>
                             <constraint firstItem="uJn-QO-Ala" firstAttribute="leading" secondItem="tQF-4H-UGP" secondAttribute="leading" id="gOx-pN-6La"/>
                             <constraint firstItem="mD6-fQ-2U0" firstAttribute="centerX" secondItem="tQF-4H-UGP" secondAttribute="centerX" id="iqo-6w-8yC"/>
-                            <constraint firstItem="oIO-Cv-P5w" firstAttribute="centerX" secondItem="tQF-4H-UGP" secondAttribute="centerX" id="jET-hj-XaA"/>
                             <constraint firstItem="mD6-fQ-2U0" firstAttribute="top" secondItem="uJn-QO-Ala" secondAttribute="bottom" constant="38" id="kXK-I2-m2t"/>
-                            <constraint firstItem="KGt-n9-KpM" firstAttribute="top" secondItem="oIO-Cv-P5w" secondAttribute="bottom" constant="8" id="l4e-X8-bXF"/>
                             <constraint firstItem="1j9-a0-3eS" firstAttribute="leading" secondItem="tQF-4H-UGP" secondAttribute="leading" id="nT6-PE-TJu"/>
                             <constraint firstItem="KGt-n9-KpM" firstAttribute="centerX" secondItem="tQF-4H-UGP" secondAttribute="centerX" id="qJa-wh-h5H"/>
                             <constraint firstItem="uJn-QO-Ala" firstAttribute="top" secondItem="btA-0L-874" secondAttribute="bottom" id="qsA-Ca-38J"/>
@@ -267,12 +265,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="navigationBar" destination="mrQ-9n-zuJ" id="VSD-Ln-daI"/>
                         <outlet property="recordBTN" destination="4uO-5Z-gm7" id="04T-aw-vbO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HU0-F6-B4I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="671" y="172"/>
+            <point key="canvasLocation" x="656" y="171"/>
         </scene>
     </scenes>
     <resources>
@@ -280,6 +279,6 @@
         <image name="purple-heart.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="k6d-XE-sUR"/>
+        <segue reference="rKh-oy-xgG"/>
     </inferredMetricsTieBreakers>
 </document>

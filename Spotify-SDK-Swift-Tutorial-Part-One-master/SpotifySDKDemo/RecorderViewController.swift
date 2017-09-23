@@ -12,6 +12,7 @@ import AVFoundation
 class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
 
+    @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var recordBTN: UIButton!
     
 
@@ -24,7 +25,13 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
     var playingSession:AVAudioSession!
     var recordSettings = [String : Any]()
     
+     var songNames_StringArr: [String] = []
+    
     override func viewDidLoad() {
+        
+        let songNames:[String] = ["La Tortura", "Hips Don't Lie", "Waka Waka"]
+        UserDefaults.standard.set(songNames, forKey: "songsNames_Arr")
+        
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 
@@ -36,6 +43,22 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func addToLikesButton_purpleHeart(_ sender: Any) {
+        if let tempArr_String  = UserDefaults.standard.object(forKey: "songsNames_Arr") as? [String] {
+            self.songNames_StringArr = tempArr_String
+        }
+        
+        songNames_StringArr.append((navigationBar.title)!)
+        //print(navigationBar.title!)
+        
+        UserDefaults.standard.set(songNames_StringArr, forKey: "songsNames_Arr")
+    }
+    
+    
+    
+    
+    
      /* ============================================================================*/
     /* Set up the recording session */
     func setupRecorder() {

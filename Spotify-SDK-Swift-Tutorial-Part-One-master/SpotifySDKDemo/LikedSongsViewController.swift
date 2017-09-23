@@ -12,8 +12,9 @@ class LikedSongsViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @IBOutlet weak var table: UITableView!
     
+    var selectedRow = -1
     
-    let songNames:[String] = ["La Tortura", "Hips Don't Lie", "Waka Waka"]
+    var songNames = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,19 +28,23 @@ class LikedSongsViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        if let tempArr_String2  = UserDefaults.standard.object(forKey: "songsNames_Arr") as? [String] {
+            
+            songNames = tempArr_String2
+        } else {
+            print("Error grabbing array of songs")
+        }
+        
+        //reload the table data:
         table.reloadData()
     }
     
-    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return songNames.count
     }
     
-    internal func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LikedSongsCell", for: indexPath)
         
         cell.textLabel?.text = songNames[indexPath.row]
@@ -47,6 +52,21 @@ class LikedSongsViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //set global var:
+        selectedRow = indexPath.row
+    }
+    
+    @IBAction func RemoveSongButton(_ sender: Any) {
+        if selectedRow >= 0 {
+            //remove song
+            songNames.remove(at: selectedRow)
+            table.reloadData()
+            
+            selectedRow = -1
+        }
+
+    }
     /*internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
           let cell3 = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "LikedSongsCell")
