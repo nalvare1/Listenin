@@ -17,7 +17,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
     
     var soundRecorder : AVAudioRecorder?
     var soundPlayer : AVAudioPlayer!
-    var fileName = "audioFile.wav"
+    var fileName = "audioFile.m4a"
     var recordingSession:AVAudioSession!
     
     override func viewDidLoad() {
@@ -51,11 +51,15 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
             print("Error1 with setUpRecorder().")
         }
 
+        let recordSettings = [AVFormatIDKey: kAudioFormatAppleLossless, AVEncoderAudioQualityKey : AVAudioQuality.max.rawValue, AVEncoderBitRateKey : 256000, AVNumberOfChannelsKey : 2, AVSampleRateKey : 44100.0 ] as [String : Any]
+       
         do {
-            let recordSettings = [AVFormatIDKey: kAudioFormatAppleLossless, AVEncoderAudioQualityKey : AVAudioQuality.max.rawValue, AVEncoderBitRateKey : 256000, AVNumberOfChannelsKey : 1, AVSampleRateKey : 44100.0 ] as [String : Any]
-            //or use 320000 for the AVEncoderBitRateKey like spotify!!
+            soundRecorder? = try AVAudioRecorder(url: getFileURL() as URL, settings: recordSettings as [String : Any])
+        } catch {
+            print("error with AVAudioRecorder")
+        }
             
-            soundRecorder = try AVAudioRecorder(url: getFileURL() as URL, settings: recordSettings as [String : Any])
+        do {
             soundRecorder?.delegate = self
             //soundRecorder?.isMeteringEnabled = true
             soundRecorder?.prepareToRecord()
@@ -74,10 +78,13 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
     }
     
     func getFileURL() -> URL {
-        let path = getCacheDirectory().appendingPathComponent(fileName)
-        
+        //let path = getCacheDirectory().appendingPathComponent(fileName)
+        let user_path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let url = user_path.appendingPathComponent(fileName)
         //let filePath = NSURL(fileURLWithPath: path)
-        let filePath = URL.init(fileURLWithPath: path)
+        
+        let filePath = URL.init(fileURLWithPath: url.path)
+        print(filePath)
         
         return filePath
      
@@ -110,6 +117,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
             
             prepareAudioPlayer()
             soundPlayer?.play()
+            print("Playing...")
         } else {
             soundPlayer?.stop()
             sender.setTitle("Play", for: .normal)
@@ -119,11 +127,20 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
     
     func prepareAudioPlayer() {
         let error = NSError?.self
+       
         do {
-            soundPlayer = try AVAudioPlayer(contentsOf: getFileURL() as URL)
+            //let myurl = getFileURL() as URL
+            let myurl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            print(myurl)
+            soundPlayer? = try AVAudioPlayer(contentsOf: myurl as URL)
+            if FileManager.default.fileExists(atPath: myurl.path) {
+                print("File found!")
+            } else {
+                print("File not found!")
+            }
             soundPlayer?.delegate = self
             soundPlayer?.prepareToPlay()
-            soundPlayer?.volume = 1.0
+            soundPlayer?.volume = 5.0
         } catch {
             NSLog("Error with prepareAudioPlayer().")
             print(error)
