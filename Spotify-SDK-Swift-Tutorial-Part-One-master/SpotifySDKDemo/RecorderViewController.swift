@@ -17,7 +17,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
     
     var soundRecorder : AVAudioRecorder!
     var soundPlayer : AVAudioPlayer!
-    var fileName = "audioFile.m4a"
+    var fileName = "audioFile4.m4a"
     var recordingSession:AVAudioSession!
     var playingSession:AVAudioSession!
     var recordSettings = [String : Any]()
@@ -71,7 +71,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
         //let filePath = NSURL(fileURLWithPath: path)
         
         //  let filePath = URL.init(fileURLWithPath: url.path)
-        print(soundurl)
+        print(soundurl!)
         
         return soundurl as NSURL?
         
@@ -88,7 +88,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
             
             print("Recording ...")
         } catch {
-            print("Error2 with setUpRecorder().")
+            print("Error1 with startRecording().")
             stopRecording(success: false)
         }
             
@@ -96,14 +96,14 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
             try recordingSession.setActive(true)
             soundRecorder.record()
         } catch {
-            print("Error3 with setUpRecorder().")
+            print("Error2 with startRecording().")
         }
     }
     func stopRecording(success: Bool) {
         do {
-            try recordingSession?.setActive(false)
+            try recordingSession.setActive(false)
         } catch {
-            print("Error with stopRecording().")
+            print("Error1 with stopRecording().")
         }
         
         soundRecorder.stop()
@@ -124,19 +124,21 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
         } catch {
             print("Error1 with prepareAudioPlayer().")
         }
+        playingSession = AVAudioSession.sharedInstance()
+        
         do {
             //let myurl = getFileURL() as URL
             let myurl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             print(myurl)
-            soundPlayer? = try AVAudioPlayer(contentsOf: myurl as URL)
+            soundPlayer = try AVAudioPlayer(contentsOf: myurl as URL)
             if FileManager.default.fileExists(atPath: myurl.path) {
                 print("File found!")
             } else {
                 print("File not found!")
             }
-            soundPlayer?.delegate = self
-            soundPlayer?.prepareToPlay()
-            soundPlayer?.volume = 5.0
+            soundPlayer.delegate = self
+            soundPlayer.prepareToPlay()
+            soundPlayer.volume = 5.0
         } catch {
             NSLog("Error2 with prepareAudioPlayer().")
         }
@@ -150,6 +152,17 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
             //soundRecorder?.record()
             self.startRecording()
             print("Recording...")
+            
+            //convert from m4a to wav:
+           /* let source_url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let new_url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            convertAudio(source_url, outputURL: new_url)
+            print("source: ")
+            print(source_url)
+            print("; new_url: ")
+            print(new_url)
+         */
+            
             //for renamed button:
             sender.setTitle("Stop", for: .normal)
             
@@ -187,6 +200,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
         }
     }
     
+    /* ============================================================================*/
     /*
     // MARK: - Navigation
 
