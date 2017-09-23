@@ -87,7 +87,7 @@
 		EF3484401E55D5BA007F7453 = {
 			isa = PBXGroup;
 			children = (
-				EF34844B1E55D5BA007F7453 /* Listenin */,
+				EF34844B1E55D5BA007F7453 /* SpotifySDKDemo */,
 				EF3484601E55D5BA007F7453 /* ListeninTests */,
 				EF34846B1E55D5BA007F7453 /* ListeninUITests */,
 				EF34844A1E55D5BA007F7453 /* Products */,
@@ -104,7 +104,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EF34844B1E55D5BA007F7453 /* Listenin */ = {
+		EF34844B1E55D5BA007F7453 /* SpotifySDKDemo */ = {
 			isa = PBXGroup;
 			children = (
 				EF34844C1E55D5BA007F7453 /* AppDelegate.swift */,
@@ -116,7 +116,7 @@
 				EF3484811E55D686007F7453 /* SpotifySDKDemo-Bridging-Header.h */,
 				EF3484801E55D609007F7453 /* Spotify Frameworks */,
 			);
-			path = Listenin;
+			path = SpotifySDKDemo;
 			sourceTree = "<group>";
 		};
 		EF3484601E55D5BA007F7453 /* ListeninTests */ = {

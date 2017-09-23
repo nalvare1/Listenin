@@ -42,7 +42,7 @@ class SpotifyLoginViewController: UIViewController, SPTAudioStreamingPlaybackDel
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setup()
-        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.updateAfterFirstLogin), name: NSNotification.Name(rawValue: "loginSuccessfull"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SpotifyLoginViewController.updateAfterFirstLogin), name: NSNotification.Name(rawValue: "loginSuccessfull"), object: nil)
         
     }
 
