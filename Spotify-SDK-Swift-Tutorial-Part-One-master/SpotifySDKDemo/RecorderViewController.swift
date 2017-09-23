@@ -15,7 +15,36 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
     @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var recordBTN: UIButton!
     
-
+    @IBAction func likesBUtton(_ sender: Any) {
+        //turn off recording if its playing
+        if(recordBTN.titleLabel?.text == "Stop") {
+            self.stopRecording(success: true)
+            recordBTN.setTitle("Record", for: .normal)
+            
+            do {
+                try recordingSession?.setActive(false)
+            } catch {
+                print("meh")
+            }
+        
+        }
+    }
+    
+    @IBAction func backToSpotifyLogin(_ sender: Any) {
+        //turn off recording if its playing
+        if(recordBTN.titleLabel?.text == "Stop") {
+            self.stopRecording(success: true)
+            recordBTN.setTitle("Record", for: .normal)
+            
+            do {
+                try recordingSession?.setActive(false)
+            } catch {
+                print("meh")
+            }
+        }
+    }
+    
+    
     //static let wav: AVFileType
     
     var soundRecorder : AVAudioRecorder!
@@ -28,15 +57,16 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
      var songNames_StringArr: [String] = []
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
+    }
+    
+     override func viewDidAppear(_ animated: Bool) {
         let songNames:[String] = ["La Tortura", "Hips Don't Lie", "Waka Waka"]
         UserDefaults.standard.set(songNames, forKey: "songsNames_Arr")
         
-        super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-
+        
         setupRecorder()
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -119,7 +149,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
         }
             
         do {
-            try recordingSession.setActive(true)
+            try recordingSession?.setActive(true)
             soundRecorder.record()
         } catch {
             print("Error2 with startRecording().")
@@ -127,12 +157,12 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
     }
     func stopRecording(success: Bool) {
         do {
-            try recordingSession.setActive(false)
+            try recordingSession?.setActive(false)
         } catch {
             print("Error1 with stopRecording().")
         }
         
-        soundRecorder.stop()
+        soundRecorder?.stop()
         if success {
             print(success)
         } else {

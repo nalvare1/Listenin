@@ -181,6 +181,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="7np-7g-kJb"/>
                                     <barButtonItem title="Likes" id="nwN-GU-vTX">
                                         <connections>
+                                            <action selector="likesBUtton:" destination="rmI-eu-cf4" id="dZj-lq-SMn"/>
                                             <segue destination="gva-J1-sRg" kind="show" id="VTf-dx-Bqd"/>
                                         </connections>
                                     </barButtonItem>
@@ -235,6 +236,7 @@
                                 <state key="normal" title="Back To Spotify Login"/>
                                 <connections>
                                     <action selector="RecorderBTN:" destination="rmI-eu-cf4" eventType="touchUpInside" id="4Ed-d9-Pgo"/>
+                                    <action selector="backToSpotifyLogin:" destination="rmI-eu-cf4" eventType="touchUpInside" id="fbO-LM-lRl"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="oT0-we-Z2a"/>
                                 </connections>
                             </button>
@@ -279,6 +281,7 @@
         <image name="purple-heart.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rKh-oy-xgG"/>
+        <segue reference="VTf-dx-Bqd"/>
+        <segue reference="k6d-XE-sUR"/>
     </inferredMetricsTieBreakers>
 </document>
