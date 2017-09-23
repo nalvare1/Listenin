@@ -12,7 +12,7 @@ import AVFoundation
 
 
 
-class MainViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
+class SpotifyLoginViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
 
     //--------------------------------------
     // MARK: Variables
@@ -53,10 +53,10 @@ class MainViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, S
 
     func setup () {
         // insert redirect your url and client ID below
-        let redirectURL = "" // put your redirect URL here
-        let clientID = "" // put your client ID here
+        let redirectURL = "Listenin://returnAfterLogin." // put your redirect URL here
+        let clientID = "42db7e3ae02f42c896ab0b63277d605d" // put your client ID here
         auth.redirectURL     = URL(string: redirectURL)
-        auth.clientID        = ""
+        auth.clientID        = clientID
         auth.requestedScopes = [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthPlaylistModifyPublicScope, SPTAuthPlaylistModifyPrivateScope]
         loginUrl = auth.spotifyWebAuthenticationURL()
         

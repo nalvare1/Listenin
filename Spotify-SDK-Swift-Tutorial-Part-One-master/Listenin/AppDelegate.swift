@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        auth.redirectURL     = URL(string: "") // insert your redirect URL here
+        auth.redirectURL     = URL(string: "Listenin://returnAfterLogin.") // insert your redirect URL here
         auth.sessionUserDefaultsKey = "current session"
         
         return true

@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Listenin</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,10 +24,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>putYourIdentifierHere</string>
+			<string>com.AT-TMobileAppHackathon2017.Listenin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>putYourURLSchemeHere</string>
+				<string>Listenin://returnAfterLogin.</string>
 			</array>
 		</dict>
 	</array>
