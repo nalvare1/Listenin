@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50C9C6F51F769B0500E6B038 /* RecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C9C6F41F769B0500E6B038 /* RecorderViewController.swift */; };
+		50C9C6F81F76AAA500E6B038 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50C9C6F71F76AAA500E6B038 /* AudioToolbox.framework */; };
 		EF34844D1E55D5BA007F7453 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34844C1E55D5BA007F7453 /* AppDelegate.swift */; };
 		EF34844F1E55D5BA007F7453 /* SpotifyLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34844E1E55D5BA007F7453 /* SpotifyLoginViewController.swift */; };
 		EF3484521E55D5BA007F7453 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF3484501E55D5BA007F7453 /* Main.storyboard */; };
@@ -37,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		50C9C6F41F769B0500E6B038 /* RecorderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderViewController.swift; sourceTree = "<group>"; };
+		50C9C6F71F76AAA500E6B038 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		50C9C6F91F76AAA600E6B038 /* Listenin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Listenin.entitlements; sourceTree = "<group>"; };
 		EF3484491E55D5BA007F7453 /* Listenin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Listenin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF34844C1E55D5BA007F7453 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF34844E1E55D5BA007F7453 /* SpotifyLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyLoginViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +69,7 @@
 				EF34847D1E55D5FE007F7453 /* SpotifyMetadata.framework in Frameworks */,
 				EF34847F1E55D5FE007F7453 /* SpotifyAuthentication.framework in Frameworks */,
 				EF34847E1E55D5FE007F7453 /* SpotifyAudioPlayback.framework in Frameworks */,
+				50C9C6F81F76AAA500E6B038 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,13 +90,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50C9C6F61F76AAA500E6B038 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50C9C6F71F76AAA500E6B038 /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EF3484401E55D5BA007F7453 = {
 			isa = PBXGroup;
 			children = (
+				50C9C6F91F76AAA600E6B038 /* Listenin.entitlements */,
 				EF34844B1E55D5BA007F7453 /* SpotifySDKDemo */,
 				EF3484601E55D5BA007F7453 /* ListeninTests */,
 				EF34846B1E55D5BA007F7453 /* ListeninUITests */,
 				EF34844A1E55D5BA007F7453 /* Products */,
+				50C9C6F61F76AAA500E6B038 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +125,7 @@
 			children = (
 				EF34844C1E55D5BA007F7453 /* AppDelegate.swift */,
 				EF34844E1E55D5BA007F7453 /* SpotifyLoginViewController.swift */,
+				50C9C6F41F769B0500E6B038 /* RecorderViewController.swift */,
 				EF3484501E55D5BA007F7453 /* Main.storyboard */,
 				EF3484531E55D5BA007F7453 /* Assets.xcassets */,
 				EF3484551E55D5BA007F7453 /* LaunchScreen.storyboard */,
@@ -210,7 +227,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Elon Rubin";
 				TargetAttributes = {
 					EF3484481E55D5BA007F7453 = {
@@ -218,6 +235,11 @@
 						DevelopmentTeam = 3TZ48YZ6N3;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InterAppAudio = {
+								enabled = 1;
+							};
+						};
 					};
 					EF34845C1E55D5BA007F7453 = {
 						CreatedOnToolsVersion = 8.1;
@@ -286,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF34844F1E55D5BA007F7453 /* SpotifyLoginViewController.swift in Sources */,
+				50C9C6F51F769B0500E6B038 /* RecorderViewController.swift in Sources */,
 				EF34844D1E55D5BA007F7453 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,7 +373,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -358,7 +383,12 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -399,7 +429,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -407,7 +439,12 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -437,6 +474,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Listenin.entitlements;
 				DEVELOPMENT_TEAM = 3TZ48YZ6N3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -459,6 +497,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Listenin.entitlements;
 				DEVELOPMENT_TEAM = 3TZ48YZ6N3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
