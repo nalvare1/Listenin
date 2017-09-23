@@ -7,6 +7,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Black Diamond.ttf">
+            <string>BlackDiamond</string>
+        </array>
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Spotify Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -70,33 +78,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEb-T1-2Ww">
-                                <rect key="frame" x="61" y="194" width="278" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Go back to Spotify Login View Controller"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Xb0-Jf-CiH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0a-q0-99W">
-                                <rect key="frame" x="80" y="325" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0a-q0-99W">
+                                <rect key="frame" x="70" y="368.5" width="81" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Luo-ot-CK3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Record"/>
                                 <connections>
                                     <action selector="RecorderButton:" destination="BBs-Ia-tVi" eventType="touchUpInside" id="UjO-bx-jPV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rip-Ss-Reh">
-                                <rect key="frame" x="228" y="325" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rip-Ss-Reh">
+                                <rect key="frame" x="229" y="368.5" width="77" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="20z-g9-2Sb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
                                     <action selector="PlayerButton:" destination="BBs-Ia-tVi" eventType="touchUpInside" id="lSR-4c-40s"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Listenin_Original_Logo_Pic.png" translatesAutoresizingMaskIntoConstraints="NO" id="rKT-r8-C2x">
+                                <rect key="frame" x="69" y="122" width="236" height="184"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="184" id="rEV-Sa-Y8E"/>
+                                    <constraint firstAttribute="width" constant="236" id="woi-DA-D7m"/>
+                                </constraints>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sb0-jm-WjE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Mood 🔮🎵" id="ubr-sk-3uB"/>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="&quot;Hips Don't Lie&quot; By Shakira" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="02u-4b-Dj4">
+                                <rect key="frame" x="68" y="438" width="239" height="75"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="239" id="UVf-vc-p5g"/>
+                                    <constraint firstAttribute="height" constant="75" id="okY-c3-OzO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGt-n9-KpM">
+                                <rect key="frame" x="154" y="532" width="67" height="63"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="N6W-kJ-eBb"/>
+                                    <constraint firstAttribute="width" constant="67" id="bbU-gm-hiD"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="purple-heart.png"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rKT-r8-C2x" firstAttribute="centerX" secondItem="AVC-cZ-gYz" secondAttribute="centerX" id="0mD-k7-ktt"/>
+                            <constraint firstItem="02u-4b-Dj4" firstAttribute="top" secondItem="rip-Ss-Reh" secondAttribute="bottom" constant="19.5" id="68A-HQ-utV"/>
+                            <constraint firstItem="rKT-r8-C2x" firstAttribute="top" secondItem="sb0-jm-WjE" secondAttribute="bottom" constant="78" id="7YU-zb-IUN"/>
+                            <constraint firstItem="E0a-q0-99W" firstAttribute="top" secondItem="rKT-r8-C2x" secondAttribute="bottom" constant="62.5" id="Af3-zE-wma"/>
+                            <constraint firstAttribute="trailing" secondItem="sb0-jm-WjE" secondAttribute="trailing" id="DWP-rK-HSv"/>
+                            <constraint firstItem="KGt-n9-KpM" firstAttribute="centerX" secondItem="AVC-cZ-gYz" secondAttribute="centerX" id="DcK-Wr-xfY"/>
+                            <constraint firstItem="sb0-jm-WjE" firstAttribute="leading" secondItem="AVC-cZ-gYz" secondAttribute="leading" id="Vv7-Sq-NHX"/>
+                            <constraint firstItem="KGt-n9-KpM" firstAttribute="top" secondItem="02u-4b-Dj4" secondAttribute="bottom" constant="19" id="dES-HK-nCY"/>
+                            <constraint firstItem="rip-Ss-Reh" firstAttribute="top" secondItem="rKT-r8-C2x" secondAttribute="bottom" constant="62.5" id="dMo-s8-5bq"/>
+                            <constraint firstItem="rip-Ss-Reh" firstAttribute="centerY" secondItem="AVC-cZ-gYz" secondAttribute="centerY" constant="60" id="eUf-AP-bzb"/>
+                            <constraint firstItem="02u-4b-Dj4" firstAttribute="centerX" secondItem="AVC-cZ-gYz" secondAttribute="centerX" id="ifQ-Jp-dgf"/>
+                            <constraint firstItem="02u-4b-Dj4" firstAttribute="top" secondItem="E0a-q0-99W" secondAttribute="bottom" constant="19.5" id="msI-bs-Ydw"/>
+                            <constraint firstItem="04o-gP-AZi" firstAttribute="top" secondItem="KGt-n9-KpM" secondAttribute="bottom" constant="28" id="nLy-hl-7pk"/>
+                            <constraint firstItem="sb0-jm-WjE" firstAttribute="top" secondItem="AVC-cZ-gYz" secondAttribute="top" id="oqe-b3-fhr"/>
+                            <constraint firstItem="KGt-n9-KpM" firstAttribute="centerX" secondItem="AVC-cZ-gYz" secondAttribute="centerX" id="sFx-zV-oAH"/>
+                            <constraint firstItem="E0a-q0-99W" firstAttribute="centerY" secondItem="AVC-cZ-gYz" secondAttribute="centerY" constant="60" id="vFt-pE-OgF"/>
+                        </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Back To Spotify Login" id="01o-K7-KGh">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="hAv-V5-vhV"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="vav-Ck-fvS"/>
+                        <barButtonItem title="Likes" id="5zP-X9-9xk"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="playBTN" destination="rip-Ss-Reh" id="haG-dG-KBs"/>
                         <outlet property="recordBTN" destination="E0a-q0-99W" id="5n4-Fs-POX"/>
@@ -104,7 +172,95 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kxp-zU-nUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="698" y="166"/>
+            <point key="canvasLocation" x="696.79999999999995" y="165.06746626686657"/>
+        </scene>
+        <!--Liked Songs View Controller-->
+        <scene sceneID="ljw-JU-ing">
+            <objects>
+                <viewController id="sGL-AH-1AA" customClass="LikedSongsViewController" customModule="Listenin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vSl-Wa-yLo"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZNB-lE-hG5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wir-ox-9SF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMs-Qd-6VY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Liked Songs 🎵" id="f7p-7D-Qon"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SmP-Xi-YUY">
+                                <rect key="frame" x="0.0" y="184" width="375" height="439"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="RUi-qa-0Rt">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RUi-qa-0Rt" id="L0B-nj-Hla">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Liked Songs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOs-IW-ImS">
+                                <rect key="frame" x="71" y="74" width="232" height="79"/>
+                                <color key="backgroundColor" red="0.68818017229999995" green="0.1817321019" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="232" id="haq-SY-ZCo"/>
+                                    <constraint firstAttribute="height" constant="79" id="o1F-Ua-ivM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BlackDiamond" family="Black Diamond" pointSize="39"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Liked Songs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vC-Kw-ZQp">
+                                <rect key="frame" x="79" y="79" width="217" height="69"/>
+                                <color key="backgroundColor" red="0.44194976590000001" green="0.35079419150000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="217" id="73V-Kd-8xu"/>
+                                    <constraint firstAttribute="height" constant="69" id="TY4-QM-Jsh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BlackDiamond" family="Black Diamond" pointSize="39"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hMs-Qd-6VY" secondAttribute="trailing" id="3gy-cP-ScI"/>
+                            <constraint firstAttribute="trailing" secondItem="hMs-Qd-6VY" secondAttribute="trailing" id="5ew-8s-yWb"/>
+                            <constraint firstItem="1vC-Kw-ZQp" firstAttribute="leading" secondItem="cOs-IW-ImS" secondAttribute="trailing" constant="-224" id="Alb-Ph-4aF"/>
+                            <constraint firstItem="1vC-Kw-ZQp" firstAttribute="centerX" secondItem="Wir-ox-9SF" secondAttribute="centerX" id="DK9-RE-XuI"/>
+                            <constraint firstItem="1vC-Kw-ZQp" firstAttribute="top" secondItem="hMs-Qd-6VY" secondAttribute="bottom" constant="35" id="HTP-0d-eSx"/>
+                            <constraint firstItem="SmP-Xi-YUY" firstAttribute="leading" secondItem="Wir-ox-9SF" secondAttribute="leading" id="LAL-LD-TRJ"/>
+                            <constraint firstItem="1vC-Kw-ZQp" firstAttribute="leading" secondItem="cOs-IW-ImS" secondAttribute="trailing" constant="-224" id="Xbz-oR-iS4"/>
+                            <constraint firstItem="1vC-Kw-ZQp" firstAttribute="top" secondItem="cOs-IW-ImS" secondAttribute="bottom" constant="-74" id="Xl8-R6-xO5"/>
+                            <constraint firstItem="hMs-Qd-6VY" firstAttribute="leading" secondItem="Wir-ox-9SF" secondAttribute="leading" id="YBH-ds-3NB"/>
+                            <constraint firstAttribute="trailing" secondItem="SmP-Xi-YUY" secondAttribute="trailing" id="bH4-Lc-vmB"/>
+                            <constraint firstItem="SmP-Xi-YUY" firstAttribute="top" secondItem="1vC-Kw-ZQp" secondAttribute="bottom" constant="36" id="ndf-VL-rV3"/>
+                            <constraint firstItem="hMs-Qd-6VY" firstAttribute="top" secondItem="Wir-ox-9SF" secondAttribute="top" id="o57-68-U7O"/>
+                            <constraint firstItem="hMs-Qd-6VY" firstAttribute="top" secondItem="Wir-ox-9SF" secondAttribute="top" id="sDm-Qz-5Ws"/>
+                            <constraint firstItem="1vC-Kw-ZQp" firstAttribute="top" secondItem="cOs-IW-ImS" secondAttribute="bottom" constant="-74" id="vfQ-g5-ANx"/>
+                            <constraint firstItem="hMs-Qd-6VY" firstAttribute="leading" secondItem="Wir-ox-9SF" secondAttribute="leading" id="yfE-8l-AXT"/>
+                            <constraint firstItem="ZNB-lE-hG5" firstAttribute="top" secondItem="SmP-Xi-YUY" secondAttribute="bottom" id="zbJ-g3-5Dw"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Back To Main" id="UPV-aq-FPm"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bZc-0p-OMX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1424.8" y="164.16791604197903"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Listenin_Original_Logo_Pic.png" width="471" height="471"/>
+        <image name="purple-heart.png" width="120" height="120"/>
+    </resources>
 </document>

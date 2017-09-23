@@ -2,7 +2,7 @@
 //  RecorderViewController.swift
 //  Listenin
 //
-//  Created by Natalie Alvarez on 9/23/17.
+//  Created by Natalie Alvarez LikedSongsViewControlleron 9/23/17.
 //  Copyright © 2017 Elon Rubin. All rights reserved.
 //
 
@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 
 class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
+
 
     @IBOutlet weak var playBTN: UIButton!
     @IBOutlet weak var recordBTN: UIButton!
@@ -28,7 +29,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
         setupRecorder()
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
