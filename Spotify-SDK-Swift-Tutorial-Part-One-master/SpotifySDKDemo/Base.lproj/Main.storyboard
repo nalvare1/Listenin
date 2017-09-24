@@ -183,9 +183,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cA3-zc-307">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cA3-zc-307">
                                 <rect key="frame" x="16" y="135" width="288" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -193,27 +192,39 @@
                                     <outlet property="delegate" destination="eHs-00-jza" id="80k-6j-4dh"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9B-29-IQi">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9B-29-IQi">
                                 <rect key="frame" x="136" y="218" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitButton:" destination="eHs-00-jza" eventType="touchUpInside" id="VGk-iY-fWC"/>
                                     <action selector="submitButton:" destination="QZg-Zr-GyG" eventType="touchUpInside" id="flx-tY-Zzi"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLY-e8-PU3">
-                                <rect key="frame" x="136" y="307" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sth-FR-DgN">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="Back to Music" id="ZQ5-RD-940">
+                                        <connections>
+                                            <segue destination="rmI-eu-cf4" kind="show" id="XvN-Fo-B7P"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="J9B-29-IQi" firstAttribute="top" secondItem="cA3-zc-307" secondAttribute="bottom" constant="53" id="7Dj-95-uf8"/>
+                            <constraint firstItem="cA3-zc-307" firstAttribute="top" secondItem="jAO-pD-9L0" secondAttribute="bottom" constant="115" id="DAU-Pc-83U"/>
+                            <constraint firstItem="idQ-tW-VJG" firstAttribute="top" secondItem="sth-FR-DgN" secondAttribute="bottom" id="LTU-zF-0F8"/>
+                            <constraint firstItem="cA3-zc-307" firstAttribute="leading" secondItem="Jdi-3F-kOc" secondAttribute="leadingMargin" id="Rsx-8T-7lF"/>
+                            <constraint firstItem="cA3-zc-307" firstAttribute="centerX" secondItem="Jdi-3F-kOc" secondAttribute="centerX" id="UE5-OR-hmZ"/>
+                            <constraint firstAttribute="trailing" secondItem="sth-FR-DgN" secondAttribute="trailing" id="cLs-yJ-wkI"/>
+                            <constraint firstItem="sth-FR-DgN" firstAttribute="leading" secondItem="Jdi-3F-kOc" secondAttribute="leading" id="e0B-ot-NEh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cA3-zc-307" secondAttribute="trailing" id="gBI-32-n6N"/>
+                            <constraint firstItem="J9B-29-IQi" firstAttribute="centerX" secondItem="Jdi-3F-kOc" secondAttribute="centerX" id="kiq-NU-vNv"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="label1" destination="ZLY-e8-PU3" id="oMm-Hi-Ld2"/>
                         <outlet property="textField1" destination="cA3-zc-307" id="5tg-Za-qGm"/>
                     </connections>
                 </viewController>
@@ -444,6 +455,6 @@
         <image name="purple-heart.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="k6d-XE-sUR"/>
+        <segue reference="XvN-Fo-B7P"/>
     </inferredMetricsTieBreakers>
 </document>

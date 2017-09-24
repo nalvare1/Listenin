@@ -207,7 +207,16 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
         
         let hello = "I'm feeling so happy! Yay!"
         
+        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let path:String = url.path
+
+        let fileURL: String =  path + "/audioFile4.m4a"
+        
+        print("path: ")
+        print(fileURL)
+        //request.httpBody = postString.data(using: .utf8)
         request.httpBody = hello.data(using: .ascii)
+        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
                 print("error=\(String(describing: error))")

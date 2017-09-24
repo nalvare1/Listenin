@@ -23,7 +23,7 @@ class Feelings2ViewController: UIViewController {
     }
     
     
-    @IBOutlet weak var label1: UILabel!
+
     
     @IBOutlet weak var textField1: UITextField!
     
@@ -52,11 +52,11 @@ class Feelings2ViewController: UIViewController {
                 
             //self.label1.text = String(describing: responseString)
                 print("responseString = \(String(describing: responseString))")
-                do {
-                    try self.label1.text = "\(String(describing: responseString))"
-                } catch {
-                    print("error")
-                }
+              //  do {
+              //      try self.label1.text = "\(String(describing: responseString))"
+              //  } catch {
+              //      print("error")
+              //  }
             }
             task.resume()
            // textField1.text = ""
