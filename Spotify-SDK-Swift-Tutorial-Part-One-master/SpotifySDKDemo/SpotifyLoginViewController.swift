@@ -53,7 +53,7 @@ class SpotifyLoginViewController: UIViewController, SPTAudioStreamingPlaybackDel
 
     func setup () {
         // insert redirect your url and client ID below
-        let redirectURL = "Listenin://returnAfterLogin." // put your redirect URL here
+        let redirectURL = "listenin://returnafterlogin" // put your redirect URL here
         let clientID = "42db7e3ae02f42c896ab0b63277d605d" // put your client ID here
         auth.redirectURL     = URL(string: redirectURL)
         auth.clientID        = clientID
@@ -64,8 +64,6 @@ class SpotifyLoginViewController: UIViewController, SPTAudioStreamingPlaybackDel
     
     func initializaPlayer(authSession:SPTSession){
         if self.player == nil {
-            
-            
             self.player = SPTAudioStreamingController.sharedInstance()
             self.player!.playbackDelegate = self
             self.player!.delegate = self
@@ -89,7 +87,7 @@ class SpotifyLoginViewController: UIViewController, SPTAudioStreamingPlaybackDel
             self.session = firstTimeSession
             initializaPlayer(authSession: session)
             self.loginButton.isHidden = true
-           // self.loadingLabel.isHidden = false
+            //self.loadingLabel.isHidden = false
             
         }
         
@@ -115,7 +113,7 @@ class SpotifyLoginViewController: UIViewController, SPTAudioStreamingPlaybackDel
         if UIApplication.shared.openURL(loginUrl!) {
             
             if auth.canHandle(auth.redirectURL) {
-                // To do - build in error handling
+                print("Authentication SUccessful??")
             }
         }
     }

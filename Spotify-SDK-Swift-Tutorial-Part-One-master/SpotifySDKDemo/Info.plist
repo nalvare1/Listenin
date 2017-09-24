@@ -21,18 +21,33 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string>Listenin_Original_Logo_Pic</string>
 			<key>CFBundleURLName</key>
 			<string>com.AT-TMobileAppHackathon2017.Listenin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>Listenin://returnAfterLogin.</string>
+				<string>listenin://returnafterlogin</string>
 			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string></string>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAppTransportSecurity</key>
+		<true/>
+	</dict>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This app will record your voice</string>
 	<key>UILaunchStoryboardName</key>

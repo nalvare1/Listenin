@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		504256011F7704A1002C6242 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504256001F7704A1002C6242 /* AVFoundation.framework */; };
 		5090CAEE1F76DB8F0029AF04 /* LikedSongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5090CAED1F76DB8F0029AF04 /* LikedSongsViewController.swift */; };
 		5090CAF51F76EB3C0029AF04 /* Listenin_Original_Logo_Pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 5090CAF31F76EAE60029AF04 /* Listenin_Original_Logo_Pic.png */; };
 		5090CAF61F76EB3C0029AF04 /* purple-heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 5090CAF41F76EAE60029AF04 /* purple-heart.png */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		504255FF1F76FEE4002C6242 /* Icon-20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-20.png"; path = "SpotifySDKDemo/appiconmaker/Icon-20.png"; sourceTree = "<group>"; };
+		504256001F7704A1002C6242 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5090CAE81F76D00A0029AF04 /* appiconmaker */ = {isa = PBXFileReference; lastKnownFileType = folder; path = appiconmaker; sourceTree = "<group>"; };
 		5090CAEC1F76DB1B0029AF04 /* Black Diamond.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Black Diamond.ttf"; path = "../../../../Library/Containers/com.apple.mail/Data/Library/Mail Downloads/152AB66E-717C-43B4-B716-0972E53FACD2/Black Diamond.ttf"; sourceTree = "<group>"; };
 		5090CAED1F76DB8F0029AF04 /* LikedSongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedSongsViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				504256011F7704A1002C6242 /* AVFoundation.framework in Frameworks */,
 				EF34847D1E55D5FE007F7453 /* SpotifyMetadata.framework in Frameworks */,
 				EF34847F1E55D5FE007F7453 /* SpotifyAuthentication.framework in Frameworks */,
 				EF34847E1E55D5FE007F7453 /* SpotifyAudioPlayback.framework in Frameworks */,
@@ -103,6 +107,7 @@
 		50C9C6F61F76AAA500E6B038 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				504256001F7704A1002C6242 /* AVFoundation.framework */,
 				5090CAEC1F76DB1B0029AF04 /* Black Diamond.ttf */,
 				50C9C6F71F76AAA500E6B038 /* AudioToolbox.framework */,
 			);
@@ -112,6 +117,7 @@
 		EF3484401E55D5BA007F7453 = {
 			isa = PBXGroup;
 			children = (
+				504255FF1F76FEE4002C6242 /* Icon-20.png */,
 				50C9C6F91F76AAA600E6B038 /* Listenin.entitlements */,
 				EF34844B1E55D5BA007F7453 /* SpotifySDKDemo */,
 				EF3484601E55D5BA007F7453 /* ListeninTests */,
@@ -244,7 +250,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0900;
-				ORGANIZATIONNAME = "Elon Rubin";
+				ORGANIZATIONNAME = "Natalie Alvarez";
 				TargetAttributes = {
 					EF3484481E55D5BA007F7453 = {
 						CreatedOnToolsVersion = 8.1;
@@ -254,6 +260,9 @@
 						SystemCapabilities = {
 							com.apple.InterAppAudio = {
 								enabled = 1;
+							};
+							com.apple.WAC = {
+								enabled = 0;
 							};
 						};
 					};
@@ -501,8 +510,9 @@
 					"$(PROJECT_DIR)/SpotifySDKDemo",
 				);
 				INFOPLIST_FILE = SpotifySDKDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AT-TMobileAppHackathon2017.Listenin";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SpotifySDKDemo/SpotifySDKDemo-Bridging-Header.h";
@@ -524,8 +534,9 @@
 					"$(PROJECT_DIR)/SpotifySDKDemo",
 				);
 				INFOPLIST_FILE = SpotifySDKDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AT-TMobileAppHackathon2017.Listenin";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SpotifySDKDemo/SpotifySDKDemo-Bridging-Header.h";

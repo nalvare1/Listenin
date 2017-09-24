@@ -86,9 +86,6 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
     }
     
     
-    
-    
-    
      /* ============================================================================*/
     /* Set up the recording session */
     func setupRecorder() {
@@ -132,6 +129,43 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
         return soundurl as NSURL?
         
     }
+    
+    func IBMURLRequest() -> Void {
+        var request = URLRequest(url: URL(string: "https://listenin.mybluemix.net/listenin")!)
+        request.httpMethod = "POST"
+        //let file1 = getFileURL()
+        print("got to IBM1")
+        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let path:String = url.path
+
+        print("path: ")
+        print(path)
+        
+
+        let postString = path + "/audioFile4.m4a"
+        request.httpBody = postString.data(using: .utf8)
+        
+        
+        print("got to IBM 2")
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                print("error=\(String(describing: error))")
+                return
+            }
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(String(describing: response))")
+            }
+            let responseString = String(data: data, encoding: .utf8)
+            print("responseString = \(String(describing: responseString))")
+            //use responseString to get emotion of audio file.
+            //make a Spotify search using this string that will be in the form:
+            //     emotion,keyword(if applicable),(concept if applicable)
+        }
+        task.resume()
+
+    }
+    
     /* ============================================================================*/
     /* start and stop recording */
     func startRecording() {
@@ -141,8 +175,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
             soundRecorder = try AVAudioRecorder(url: getFileURL()! as URL, settings: recordSettings)
             soundRecorder.delegate = self
             soundRecorder.prepareToRecord()
-            
-            print("Recording ...")
+
         } catch {
             print("Error1 with startRecording().")
             stopRecording(success: false)
@@ -165,6 +198,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
         soundRecorder?.stop()
         if success {
             print(success)
+            IBMURLRequest()
         } else {
             soundRecorder = nil
             print("Something wrong with stopRecording().")

@@ -281,7 +281,6 @@
         <image name="purple-heart.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VTf-dx-Bqd"/>
-        <segue reference="k6d-XE-sUR"/>
+        <segue reference="rKh-oy-xgG"/>
     </inferredMetricsTieBreakers>
 </document>

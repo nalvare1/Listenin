@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        auth.redirectURL     = URL(string: "Listenin://returnAfterLogin.") // insert your redirect URL here
+        
+        auth.redirectURL     = URL(string: "listenin://returnafterlogin") // insert your redirect URL here
         auth.sessionUserDefaultsKey = "current session"
         
         return true
@@ -26,8 +27,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // called when user signs into spotify. Session data saved into user defaults, then notification posted to call updateAfterFirstLogin in ViewController.swift. Modeled off recommneded auth flow suggested by Spotify documentation
 
+        /*
+        if SPTAuth.defaultInstance().canHandleURL(url, withDeclaredRedirectURL: NSURL(string: auth.redirectURL)) {
+            SPTAuth.defaultInstance().handleAuthCalalbackWithTriggeredAuthURL(url, tokenSwapServiceEndpointAtURL: NSURL(string: ktokenSwapURL), callback: { (error: NSError!, SPTSession!) -> Void in
+                if error !+ nil {
+                    print("Authentication ERROR!!")
+                    return
+                }
+                let userDefaults = NSUserDefautls.standardUserDefaults()
+                userDefautls.setBool(true, forKey: "premium_purchased")
+                userDefaults.synchronize()
+ 
+                // if userDefaults.boolForKey("premium_purchased") {
+                //   userdefaults.synchronize()
+                //}
+            })
+ 
+            return false
+        }
+ */
         
-        if auth.canHandle(auth.redirectURL) {
+     if auth.canHandle(auth.redirectURL) {
             auth.handleAuthCallback(withTriggeredAuthURL: url, callback: { (error, session) in
 
                 
@@ -35,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("error!")
                 }
                 let userDefaults = UserDefaults.standard
-                let sessionData = NSKeyedArchiver.archivedData(withRootObject: session)
+                let sessionData = NSKeyedArchiver.archivedData(withRootObject: session!)
                 print(sessionData)
                 userDefaults.set(sessionData, forKey: "SpotifySession")
                 userDefaults.synchronize()
