@@ -1,0 +1,3 @@
+[submodule "Spotify-SDK-Swift-Tutorial-Part-One-master/SpotifySDKDemo/Alamofire"]
+	path = Spotify-SDK-Swift-Tutorial-Part-One-master/SpotifySDKDemo/Alamofire
+	url = https://github.com/Alamofire/Alamofire.git

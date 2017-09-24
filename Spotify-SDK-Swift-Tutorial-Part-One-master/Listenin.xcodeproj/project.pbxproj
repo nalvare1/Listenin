@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		504256011F7704A1002C6242 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504256001F7704A1002C6242 /* AVFoundation.framework */; };
+		504256451F77487B002C6242 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504256381F774818002C6242 /* Alamofire.framework */; };
+		504256461F77487B002C6242 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 504256381F774818002C6242 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5042564D1F776905002C6242 /* FeelingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042564C1F776905002C6242 /* FeelingsViewController.swift */; };
+		5042564F1F777568002C6242 /* Feelings2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042564E1F777568002C6242 /* Feelings2ViewController.swift */; };
 		5090CAEE1F76DB8F0029AF04 /* LikedSongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5090CAED1F76DB8F0029AF04 /* LikedSongsViewController.swift */; };
 		5090CAF51F76EB3C0029AF04 /* Listenin_Original_Logo_Pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 5090CAF31F76EAE60029AF04 /* Listenin_Original_Logo_Pic.png */; };
 		5090CAF61F76EB3C0029AF04 /* purple-heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 5090CAF41F76EAE60029AF04 /* purple-heart.png */; };
@@ -27,6 +31,62 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		504256371F774818002C6242 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5042562C1F774817002C6242 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		504256391F774818002C6242 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5042562C1F774817002C6242 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS Tests";
+		};
+		5042563B1F774818002C6242 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5042562C1F774817002C6242 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire macOS";
+		};
+		5042563D1F774818002C6242 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5042562C1F774817002C6242 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire macOS Tests";
+		};
+		5042563F1F774818002C6242 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5042562C1F774817002C6242 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CF626EF1BA7CB3E0011A099;
+			remoteInfo = "Alamofire tvOS";
+		};
+		504256411F774818002C6242 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5042562C1F774817002C6242 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CF626F81BA7CB3E0011A099;
+			remoteInfo = "Alamofire tvOS Tests";
+		};
+		504256431F774818002C6242 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5042562C1F774817002C6242 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4202FE01B667AA100C997FB;
+			remoteInfo = "Alamofire watchOS";
+		};
+		504256471F77487B002C6242 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5042562C1F774817002C6242 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
 		EF34845E1E55D5BA007F7453 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EF3484411E55D5BA007F7453 /* Project object */;
@@ -43,9 +103,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		504256491F77487B002C6242 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				504256461F77487B002C6242 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		504255FF1F76FEE4002C6242 /* Icon-20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-20.png"; path = "SpotifySDKDemo/appiconmaker/Icon-20.png"; sourceTree = "<group>"; };
 		504256001F7704A1002C6242 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5042562C1F774817002C6242 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = SpotifySDKDemo/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		5042564C1F776905002C6242 /* FeelingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingsViewController.swift; sourceTree = "<group>"; };
+		5042564E1F777568002C6242 /* Feelings2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feelings2ViewController.swift; sourceTree = "<group>"; };
 		5090CAE81F76D00A0029AF04 /* appiconmaker */ = {isa = PBXFileReference; lastKnownFileType = folder; path = appiconmaker; sourceTree = "<group>"; };
 		5090CAEC1F76DB1B0029AF04 /* Black Diamond.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Black Diamond.ttf"; path = "../../../../Library/Containers/com.apple.mail/Data/Library/Mail Downloads/152AB66E-717C-43B4-B716-0972E53FACD2/Black Diamond.ttf"; sourceTree = "<group>"; };
 		5090CAED1F76DB8F0029AF04 /* LikedSongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedSongsViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				504256011F7704A1002C6242 /* AVFoundation.framework in Frameworks */,
+				504256451F77487B002C6242 /* Alamofire.framework in Frameworks */,
 				EF34847D1E55D5FE007F7453 /* SpotifyMetadata.framework in Frameworks */,
 				EF34847F1E55D5FE007F7453 /* SpotifyAuthentication.framework in Frameworks */,
 				EF34847E1E55D5FE007F7453 /* SpotifyAudioPlayback.framework in Frameworks */,
@@ -104,6 +182,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5042562D1F774817002C6242 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				504256381F774818002C6242 /* Alamofire.framework */,
+				5042563A1F774818002C6242 /* Alamofire iOS Tests.xctest */,
+				5042563C1F774818002C6242 /* Alamofire.framework */,
+				5042563E1F774818002C6242 /* Alamofire macOS Tests.xctest */,
+				504256401F774818002C6242 /* Alamofire.framework */,
+				504256421F774818002C6242 /* Alamofire tvOS Tests.xctest */,
+				504256441F774818002C6242 /* Alamofire.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		50C9C6F61F76AAA500E6B038 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +209,7 @@
 		EF3484401E55D5BA007F7453 = {
 			isa = PBXGroup;
 			children = (
+				5042562C1F774817002C6242 /* Alamofire.xcodeproj */,
 				504255FF1F76FEE4002C6242 /* Icon-20.png */,
 				50C9C6F91F76AAA600E6B038 /* Listenin.entitlements */,
 				EF34844B1E55D5BA007F7453 /* SpotifySDKDemo */,
@@ -140,12 +233,14 @@
 		EF34844B1E55D5BA007F7453 /* SpotifySDKDemo */ = {
 			isa = PBXGroup;
 			children = (
+				5042564C1F776905002C6242 /* FeelingsViewController.swift */,
 				EF34844C1E55D5BA007F7453 /* AppDelegate.swift */,
 				5090CAF31F76EAE60029AF04 /* Listenin_Original_Logo_Pic.png */,
 				5090CAF41F76EAE60029AF04 /* purple-heart.png */,
 				EF34844E1E55D5BA007F7453 /* SpotifyLoginViewController.swift */,
 				50C9C6F41F769B0500E6B038 /* RecorderViewController.swift */,
 				EF3484501E55D5BA007F7453 /* Main.storyboard */,
+				5042564E1F777568002C6242 /* Feelings2ViewController.swift */,
 				5090CAED1F76DB8F0029AF04 /* LikedSongsViewController.swift */,
 				EF3484531E55D5BA007F7453 /* Assets.xcassets */,
 				EF3484551E55D5BA007F7453 /* LaunchScreen.storyboard */,
@@ -196,10 +291,12 @@
 				EF3484451E55D5BA007F7453 /* Sources */,
 				EF3484461E55D5BA007F7453 /* Frameworks */,
 				EF3484471E55D5BA007F7453 /* Resources */,
+				504256491F77487B002C6242 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				504256481F77487B002C6242 /* PBXTargetDependency */,
 			);
 			name = Listenin;
 			productName = SpotifySDKDemo;
@@ -291,6 +388,12 @@
 			mainGroup = EF3484401E55D5BA007F7453;
 			productRefGroup = EF34844A1E55D5BA007F7453 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5042562D1F774817002C6242 /* Products */;
+					ProjectRef = 5042562C1F774817002C6242 /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				EF3484481E55D5BA007F7453 /* Listenin */,
@@ -299,6 +402,58 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		504256381F774818002C6242 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 504256371F774818002C6242 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5042563A1F774818002C6242 /* Alamofire iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire iOS Tests.xctest";
+			remoteRef = 504256391F774818002C6242 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5042563C1F774818002C6242 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 5042563B1F774818002C6242 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5042563E1F774818002C6242 /* Alamofire macOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire macOS Tests.xctest";
+			remoteRef = 5042563D1F774818002C6242 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		504256401F774818002C6242 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 5042563F1F774818002C6242 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		504256421F774818002C6242 /* Alamofire tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire tvOS Tests.xctest";
+			remoteRef = 504256411F774818002C6242 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		504256441F774818002C6242 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 504256431F774818002C6242 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EF3484471E55D5BA007F7453 /* Resources */ = {
@@ -335,7 +490,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5042564D1F776905002C6242 /* FeelingsViewController.swift in Sources */,
 				EF34844F1E55D5BA007F7453 /* SpotifyLoginViewController.swift in Sources */,
+				5042564F1F777568002C6242 /* Feelings2ViewController.swift in Sources */,
 				50C9C6F51F769B0500E6B038 /* RecorderViewController.swift in Sources */,
 				EF34844D1E55D5BA007F7453 /* AppDelegate.swift in Sources */,
 				5090CAEE1F76DB8F0029AF04 /* LikedSongsViewController.swift in Sources */,
@@ -361,6 +518,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		504256481F77487B002C6242 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = 504256471F77487B002C6242 /* PBXContainerItemProxy */;
+		};
 		EF34845F1E55D5BA007F7453 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EF3484481E55D5BA007F7453 /* Listenin */;
@@ -501,6 +663,7 @@
 		EF3484721E55D5BA007F7453 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Listenin.entitlements;
@@ -525,6 +688,7 @@
 		EF3484731E55D5BA007F7453 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Listenin.entitlements;

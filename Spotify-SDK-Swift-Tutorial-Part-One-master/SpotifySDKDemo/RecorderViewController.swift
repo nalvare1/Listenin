@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Alamofire
 
 class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
@@ -18,7 +19,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
     @IBAction func likesBUtton(_ sender: Any) {
         //turn off recording if its playing
         if(recordBTN.titleLabel?.text == "Stop") {
-            self.stopRecording(success: true)
+           // self.stopRecording(success: true)
             recordBTN.setTitle("Record", for: .normal)
             
             do {
@@ -29,20 +30,8 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
         
         }
     }
+ 
     
-    @IBAction func backToSpotifyLogin(_ sender: Any) {
-        //turn off recording if its playing
-        if(recordBTN.titleLabel?.text == "Stop") {
-            self.stopRecording(success: true)
-            recordBTN.setTitle("Record", for: .normal)
-            
-            do {
-                try recordingSession?.setActive(false)
-            } catch {
-                print("meh")
-            }
-        }
-    }
     
     
     //static let wav: AVFileType
@@ -61,7 +50,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
     }
     
      override func viewDidAppear(_ animated: Bool) {
-        let songNames:[String] = ["La Tortura", "Hips Don't Lie", "Waka Waka"]
+        let songNames:[String] = ["\"Despacito (remix) \" ft. Justin Bieber", "\"Electric Field\" by MGMT", "\"Notre Dame Victory March\" by the Fighting Irish"]
         UserDefaults.standard.set(songNames, forKey: "songsNames_Arr")
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -72,6 +61,88 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func startRecording() -> Void{
+        recordingSession = AVAudioSession.sharedInstance()
+        
+        do {
+            soundRecorder = try AVAudioRecorder(url: getFileURL()! as URL, settings: recordSettings)
+            soundRecorder.delegate = self
+            soundRecorder.prepareToRecord()
+            
+        } catch {
+            print("Error1 with startRecording().")
+            stopRecording(success: false)
+        }
+        
+        do {
+            try recordingSession?.setActive(true)
+            soundRecorder.record()
+        } catch {
+            print("Error2 with startRecording().")
+        }
+    }
+    func stopRecording(success: Bool)  ->Void{
+        do {
+            try recordingSession?.setActive(false)
+        } catch {
+            print("Error1 with stopRecording().")
+        }
+        
+        soundRecorder?.stop()
+        if success {
+            print(success)
+            //IBMURLRequest()
+        } else {
+            soundRecorder = nil
+            print("Something wrong with stopRecording().")
+        }
+    }
+    
+    @IBAction func RecorderBTN(_ sender: UIButton) {
+        if sender.titleLabel?.text == "Record" {
+            
+            //soundRecorder?.record()
+            startRecording()
+            print("Recording...")
+            
+            //convert from m4a to wav:
+            /* let source_url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+             let new_url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+             convertAudio(source_url, outputURL: new_url)
+             print("source: ")
+             print(source_url)
+             print("; new_url: ")
+             print(new_url)
+             */
+            
+            //for renamed button:
+            sender.setTitle("Stop", for: .normal)
+            
+            //disable button to play recording:
+            //playBTN.isEnabled = false
+        } else {
+            // soundRecorder?.stop()
+            stopRecording(success: true)
+            sender.setTitle("Record", for: .normal)
+            IBMData()
+            //playBTN.isEnabled = true
+        }
+    }
+    
+    @IBAction func backToSpotifyLogin(_ sender: Any) {
+        //turn off recording if its playing
+        if(recordBTN.titleLabel?.text == "Stop") {
+            stopRecording(success: true)
+            recordBTN.setTitle("Record", for: .normal)
+            
+            do {
+                try recordingSession?.setActive(false)
+            } catch {
+                print("meh")
+            }
+        }
     }
     
     @IBAction func addToLikesButton_purpleHeart(_ sender: Any) {
@@ -93,7 +164,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
             try recordingSession?.setCategory(AVAudioSessionCategoryRecord)
             try recordingSession?.setActive(true)
             
-            try recordingSession?.requestRecordPermission({ (allowed:Bool) in
+            recordingSession?.requestRecordPermission({ (allowed:Bool) in
                 if allowed{
                     print("Mic authorized")
                 } else {
@@ -130,23 +201,13 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
         
     }
     
-    func IBMURLRequest() -> Void {
+    func IBMData() {
         var request = URLRequest(url: URL(string: "https://listenin.mybluemix.net/listenin")!)
         request.httpMethod = "POST"
-        //let file1 = getFileURL()
-        print("got to IBM1")
-        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let path:String = url.path
-
-        print("path: ")
-        print(path)
         
-
-        let postString = path + "/audioFile4.m4a"
-        request.httpBody = postString.data(using: .utf8)
+        let hello = "I'm feeling so happy! Yay!"
         
-        
-        print("got to IBM 2")
+        request.httpBody = hello.data(using: .ascii)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
                 print("error=\(String(describing: error))")
@@ -156,54 +217,14 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print("response = \(String(describing: response))")
             }
-            let responseString = String(data: data, encoding: .utf8)
+            let responseString = String(data: data, encoding: .utf8)!
+            
+            //self.outputTextBox.text = "You are feeling:\n" + responseString
             print("responseString = \(String(describing: responseString))")
-            //use responseString to get emotion of audio file.
-            //make a Spotify search using this string that will be in the form:
-            //     emotion,keyword(if applicable),(concept if applicable)
-        }
-        task.resume()
-
     }
-    
     /* ============================================================================*/
     /* start and stop recording */
-    func startRecording() {
-        recordingSession = AVAudioSession.sharedInstance()
-        
-        do {
-            soundRecorder = try AVAudioRecorder(url: getFileURL()! as URL, settings: recordSettings)
-            soundRecorder.delegate = self
-            soundRecorder.prepareToRecord()
-
-        } catch {
-            print("Error1 with startRecording().")
-            stopRecording(success: false)
-        }
-            
-        do {
-            try recordingSession?.setActive(true)
-            soundRecorder.record()
-        } catch {
-            print("Error2 with startRecording().")
-        }
-    }
-    func stopRecording(success: Bool) {
-        do {
-            try recordingSession?.setActive(false)
-        } catch {
-            print("Error1 with stopRecording().")
-        }
-        
-        soundRecorder?.stop()
-        if success {
-            print(success)
-            IBMURLRequest()
-        } else {
-            soundRecorder = nil
-            print("Something wrong with stopRecording().")
-        }
-    }
+    
      /* ============================================================================*/
     /* set up audio player: */
     func prepareAudioPlayer() {
@@ -236,38 +257,7 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
     /* ============================================================================*/
     /* buttons: */
     
-    @IBAction func RecorderBTN(_ sender: UIButton) {
     
-        if sender.titleLabel?.text == "Record" {
-        
-            //soundRecorder?.record()
-            self.startRecording()
-            print("Recording...")
-            
-            //convert from m4a to wav:
-           /* let source_url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let new_url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            convertAudio(source_url, outputURL: new_url)
-            print("source: ")
-            print(source_url)
-            print("; new_url: ")
-            print(new_url)
-         */
-            
-            //for renamed button:
-            sender.setTitle("Stop", for: .normal)
-            
-            //disable button to play recording:
-            //playBTN.isEnabled = false
-        } else {
-           // soundRecorder?.stop()
-            self.stopRecording(success: true)
-            sender.setTitle("Record", for: .normal)
-            //playBTN.isEnabled = true
-        }
-        
-    
-    }
     /*
     @IBAction func PlayerButton(_ sender: UIButton) {
         if sender.titleLabel?.text == "Play" {
@@ -302,5 +292,5 @@ class RecorderViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRe
         // Pass the selected object to the new view controller.
     }
     */
-
+    }
 }

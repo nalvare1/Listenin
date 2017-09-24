@@ -4,7 +4,9 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -26,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEf-dO-Ywl">
-                                <rect key="frame" x="64.5" y="269" width="191" height="30"/>
+                                <rect key="frame" x="64.5" y="309" width="191" height="30"/>
                                 <color key="backgroundColor" red="0.1803921568627451" green="0.74117647058823533" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="1va-vw-N6v"/>
@@ -40,9 +42,16 @@
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dfR-Ek-Cgz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81p-j2-0gi">
-                                <rect key="frame" x="52" y="188" width="216" height="30"/>
-                                <state key="normal" title="Go To Recorder View Controller"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81p-j2-0gi">
+                                <rect key="frame" x="65" y="119" width="191" height="139"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="191" id="oKW-dS-GT2"/>
+                                    <constraint firstAttribute="height" constant="139" id="rVX-kw-uxT"/>
+                                </constraints>
+                                <state key="normal" image="Listenin_Original_Logo_Pic.png"/>
                                 <connections>
                                     <segue destination="rmI-eu-cf4" kind="show" id="rKh-oy-xgG"/>
                                 </connections>
@@ -50,10 +59,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="WEf-dO-Ywl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Srb-cx-oTH"/>
                             <constraint firstItem="WEf-dO-Ywl" firstAttribute="top" secondItem="81p-j2-0gi" secondAttribute="bottom" constant="51" id="Y72-L6-oFv"/>
                             <constraint firstItem="WEf-dO-Ywl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gUu-kl-mWT"/>
                             <constraint firstItem="81p-j2-0gi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mzM-cY-vwY"/>
+                            <constraint firstItem="WEf-dO-Ywl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="40" id="nQh-pi-Hgi"/>
                         </constraints>
                     </view>
                     <connections>
@@ -62,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-135.19999999999999" y="172.26386806596702"/>
+            <point key="canvasLocation" x="-136.875" y="172.18309859154931"/>
         </scene>
         <!--Liked Songs View Controller-->
         <scene sceneID="Dcy-hn-MvZ">
@@ -79,7 +88,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Efc-y5-0sx">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem title="Back To Main Menu" id="i0m-PW-kC8">
+                                    <barButtonItem title="Back To Music" id="i0m-PW-kC8">
                                         <connections>
                                             <segue destination="rmI-eu-cf4" kind="show" id="k6d-XE-sUR"/>
                                         </connections>
@@ -162,6 +171,56 @@
             </objects>
             <point key="canvasLocation" x="1432.5" y="171.12676056338029"/>
         </scene>
+        <!--Feelings2 View Controller-->
+        <scene sceneID="JVv-lP-1mv">
+            <objects>
+                <viewController id="QZg-Zr-GyG" customClass="Feelings2ViewController" customModule="Listenin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jAO-pD-9L0"/>
+                        <viewControllerLayoutGuide type="bottom" id="idQ-tW-VJG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jdi-3F-kOc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cA3-zc-307">
+                                <rect key="frame" x="16" y="135" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eHs-00-jza" id="80k-6j-4dh"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9B-29-IQi">
+                                <rect key="frame" x="136" y="218" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitButton:" destination="eHs-00-jza" eventType="touchUpInside" id="VGk-iY-fWC"/>
+                                    <action selector="submitButton:" destination="QZg-Zr-GyG" eventType="touchUpInside" id="flx-tY-Zzi"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLY-e8-PU3">
+                                <rect key="frame" x="136" y="307" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="label1" destination="ZLY-e8-PU3" id="oMm-Hi-Ld2"/>
+                        <outlet property="textField1" destination="cA3-zc-307" id="5tg-Za-qGm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="etk-dL-E9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2248" y="171"/>
+        </scene>
         <!--Recorder View Controller-->
         <scene sceneID="zL7-zE-0CM">
             <objects>
@@ -177,7 +236,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1j9-a0-3eS">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="play" id="0hw-mY-ll5"/>
+                                    <barButtonItem title="How Do You Feel?" id="uwx-Go-L0E">
+                                        <connections>
+                                            <segue destination="QZg-Zr-GyG" kind="show" id="74X-lV-zXf"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="7np-7g-kJb"/>
                                     <barButtonItem title="Likes" id="nwN-GU-vTX">
                                         <connections>
@@ -185,8 +248,6 @@
                                             <segue destination="gva-J1-sRg" kind="show" id="VTf-dx-Bqd"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="LNS-Fj-VxB"/>
-                                    <barButtonItem systemItem="pause" id="SL7-1M-IkC"/>
                                 </items>
                             </toolbar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uJn-QO-Ala">
@@ -210,7 +271,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Record"/>
                                 <connections>
-                                    <action selector="RecorderBTN:" destination="rmI-eu-cf4" eventType="touchUpInside" id="3ph-QQ-LvF"/>
+                                    <action selector="RecorderBTN:" destination="rmI-eu-cf4" eventType="touchUpInside" id="jB1-13-r5b"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGt-n9-KpM">
@@ -275,12 +336,114 @@
             </objects>
             <point key="canvasLocation" x="656" y="171"/>
         </scene>
+        <!--Feelings View Controller-->
+        <scene sceneID="ayC-kf-fLC">
+            <objects>
+                <viewController id="eHs-00-jza" customClass="FeelingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="53H-DL-YjQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zvm-wc-oi3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Hj-3E-H37">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="91h-pD-4Wd">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="Back To Music" id="uCh-oT-DrF">
+                                        <connections>
+                                            <segue destination="rmI-eu-cf4" kind="show" id="rKG-6y-WUo"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="oib-yN-2NG"/>
+                                </items>
+                            </toolbar>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nlr-rR-oph">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Mood 🔮🎵" id="98N-sP-Mp7"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="What's The Feeling?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGv-Jo-Pdh">
+                                <rect key="frame" x="37" y="107" width="246" height="65"/>
+                                <color key="backgroundColor" red="0.14390526540000001" green="0.13680654950000001" blue="0.76360247459999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="246" id="PgY-Fi-K2h"/>
+                                    <constraint firstAttribute="height" constant="65" id="wq3-D9-eUM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BlackDiamond" family="Black Diamond" pointSize="39"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K2T-Xp-O6q">
+                                <rect key="frame" x="16" y="269" width="288" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eHs-00-jza" id="FTo-q9-Tpb"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvA-zw-gJI">
+                                <rect key="frame" x="136" y="329" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitButton:" destination="eHs-00-jza" eventType="touchUpInside" id="rBl-8g-eDN"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="How does this song make you feel?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpX-Ee-0CY">
+                                <rect key="frame" x="34" y="204" width="253" height="41.5"/>
+                                <fontDescription key="fontDescription" name="BlackDiamond" family="Black Diamond" pointSize="25"/>
+                                <color key="textColor" red="0.69089011249999999" green="0.2508591832" blue="0.99044191839999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uGv-Jo-Pdh" firstAttribute="top" secondItem="nlr-rR-oph" secondAttribute="bottom" constant="43" id="7TA-v6-sbX"/>
+                            <constraint firstItem="cvA-zw-gJI" firstAttribute="top" secondItem="K2T-Xp-O6q" secondAttribute="bottom" constant="30" id="9zC-q2-nSc"/>
+                            <constraint firstItem="HpX-Ee-0CY" firstAttribute="centerX" secondItem="9Hj-3E-H37" secondAttribute="centerX" id="BWN-2f-L5Q"/>
+                            <constraint firstItem="Zvm-wc-oi3" firstAttribute="top" secondItem="91h-pD-4Wd" secondAttribute="bottom" id="BjT-vF-TxY"/>
+                            <constraint firstItem="nlr-rR-oph" firstAttribute="leading" secondItem="9Hj-3E-H37" secondAttribute="leading" id="Fd4-py-2I4"/>
+                            <constraint firstItem="K2T-Xp-O6q" firstAttribute="leading" secondItem="9Hj-3E-H37" secondAttribute="leadingMargin" id="Gia-5w-FPq"/>
+                            <constraint firstItem="91h-pD-4Wd" firstAttribute="leading" secondItem="9Hj-3E-H37" secondAttribute="leading" id="JXB-J4-u7c"/>
+                            <constraint firstItem="nlr-rR-oph" firstAttribute="centerX" secondItem="9Hj-3E-H37" secondAttribute="centerX" id="KC9-lE-AYM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="K2T-Xp-O6q" secondAttribute="trailing" id="Neq-hM-iOT"/>
+                            <constraint firstItem="HpX-Ee-0CY" firstAttribute="top" secondItem="uGv-Jo-Pdh" secondAttribute="bottom" constant="32" id="RNb-tY-0cF"/>
+                            <constraint firstAttribute="trailing" secondItem="nlr-rR-oph" secondAttribute="trailing" id="VKD-Mr-k3a"/>
+                            <constraint firstAttribute="trailing" secondItem="91h-pD-4Wd" secondAttribute="trailing" id="Vnx-oC-VXw"/>
+                            <constraint firstItem="91h-pD-4Wd" firstAttribute="leading" secondItem="9Hj-3E-H37" secondAttribute="leading" id="Vz1-Ub-iJl"/>
+                            <constraint firstAttribute="trailing" secondItem="nlr-rR-oph" secondAttribute="trailing" id="W1b-Yb-v3h"/>
+                            <constraint firstItem="Zvm-wc-oi3" firstAttribute="top" secondItem="91h-pD-4Wd" secondAttribute="bottom" id="WZv-YC-I98"/>
+                            <constraint firstItem="K2T-Xp-O6q" firstAttribute="top" secondItem="HpX-Ee-0CY" secondAttribute="bottom" constant="37.5" id="XfB-mf-R6e"/>
+                            <constraint firstItem="uGv-Jo-Pdh" firstAttribute="centerX" secondItem="9Hj-3E-H37" secondAttribute="centerX" id="YFz-nW-6pz"/>
+                            <constraint firstItem="nlr-rR-oph" firstAttribute="top" secondItem="53H-DL-YjQ" secondAttribute="bottom" id="Z77-fR-0kk"/>
+                            <constraint firstItem="nlr-rR-oph" firstAttribute="leading" secondItem="9Hj-3E-H37" secondAttribute="leading" id="bMH-bf-D3Z"/>
+                            <constraint firstItem="K2T-Xp-O6q" firstAttribute="centerY" secondItem="9Hj-3E-H37" secondAttribute="centerY" id="d3S-a6-srW"/>
+                            <constraint firstItem="nlr-rR-oph" firstAttribute="leading" secondItem="9Hj-3E-H37" secondAttribute="leading" id="fNA-f1-63m"/>
+                            <constraint firstAttribute="trailing" secondItem="nlr-rR-oph" secondAttribute="trailing" id="ghA-CG-WI0"/>
+                            <constraint firstAttribute="trailing" secondItem="91h-pD-4Wd" secondAttribute="trailing" id="rJb-dR-oS8"/>
+                            <constraint firstItem="K2T-Xp-O6q" firstAttribute="centerX" secondItem="9Hj-3E-H37" secondAttribute="centerX" id="tib-xq-43D"/>
+                            <constraint firstItem="91h-pD-4Wd" firstAttribute="leading" secondItem="9Hj-3E-H37" secondAttribute="leading" id="u4G-i3-8E9"/>
+                            <constraint firstAttribute="trailing" secondItem="91h-pD-4Wd" secondAttribute="trailing" id="u4s-xY-S9O"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="pHn-uq-ZMX"/>
+                    <connections>
+                        <outlet property="textField1" destination="K2T-Xp-O6q" id="uCE-bb-OBt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1dr-qM-Xas" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="930" y="932.74647887323943"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Listenin_Original_Logo_Pic.png" width="471" height="471"/>
         <image name="purple-heart.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rKh-oy-xgG"/>
+        <segue reference="k6d-XE-sUR"/>
     </inferredMetricsTieBreakers>
 </document>
